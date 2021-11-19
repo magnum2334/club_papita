@@ -11,12 +11,17 @@ class Role_seeder extends Seeder
 {
     /**
      * Run the database seeds.
-     *
+     * roles
      * @return void
      */
+
     public function run()
-    {
-        $admin=Role::create(['name' => 'UserAdmin']);
-        $visitantes=Role::create([''=> 'UserVisitante']);
+    {   
+        Role::create([
+            'name'         => 'UserAdmin',
+            'display_name' => 'Admin',
+            'removable'    => false,
+        ]);
+        
     }
 }

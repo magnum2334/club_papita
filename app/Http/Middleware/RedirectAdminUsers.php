@@ -16,8 +16,8 @@ class RedirectAdminUsers
      */
     public function handle(Request $request, Closure $next)
     {
-        if($role == 'corporate' && !\Auth::user()->hasRole('UserCorporate')){
-            return redirect('/admin');
+        if(!\Auth::user()->role || !\Auth::user()->role->name == 'UserAdmin'){
+            return redirect('/dashboard');
         }
         return $next($request);
     }
