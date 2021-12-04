@@ -4022,6 +4022,10 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
+$(document).ready(function () {
+  $('.js-example-basic-multiple').select2();
+});
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":

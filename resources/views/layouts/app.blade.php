@@ -3,14 +3,80 @@
     <head>
         @include('partials.head')
         @include('partials.jsfiles')
+        @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+
     </head>
     <body class="font-sans antialiased">
+        
+        @if (Session::has('missing_equipment'))
+        <script type="text/javascript">  
+            swal({
+                icon: 'warning',
+                title:'equipo lleno',
+                text:"{{Session::get('missing_equipment')}}",
+                type:'success'
+            }).then((value) => {
+                location.reload();
+            }).catch(swal.noop);
+        </script>
+        @endif
+        
+        @if (Session::has('squad'))
+        <script type="text/javascript">  
+            swal({
+                icon: 'warning',
+                title:'equipo lleno',
+                text:"{{Session::get('squad')}}",
+                type:'success'
+            }).then((value) => {
+                location.reload();
+            }).catch(swal.noop);
+        </script>
+        @endif
+
+        @if (Session::has('player_store'))
+        <script type="text/javascript">  
+            swal({
+                icon: 'success',
+                title:'jugador creado',
+                text:"{{Session::get('player_store')}}",
+                type:'success'
+            }).then((value) => {
+            }).catch(swal.noop);
+        </script>
+        @endif
+
         @if (Session::has('tournament_store'))
         <script type="text/javascript">  
             swal({
                 icon: 'success',
-                title:'mai es gei',
+                title:'torneo creado',
                 text:"{{Session::get('tournament_store')}}",
+                type:'success'
+            }).then((value) => {
+                location.reload();
+            }).catch(swal.noop);
+        </script>
+        @endif
+        @if (Session::has('player_created'))
+        <script type="text/javascript">  
+            swal({
+                icon: 'success',
+                title:'maiesgei',
+                text:"{{Session::get('player_created')}}",
+                type:'success'
+            }).then((value) => {
+                location.reload();
+            }).catch(swal.noop);
+        </script>
+        @endif
+        
+        @if (Session::has('Equipment_store'))
+        <script type="text/javascript">  
+            swal({
+                icon: 'success',
+                title:'maiesgei',
+                text:"{{Session::get('Equipment_store')}}",
                 type:'success'
             }).then((value) => {
                 location.reload();

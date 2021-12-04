@@ -5,10 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class round extends Model
+class Goal extends Model
 {
     use HasFactory;
-    protected $table = 'rounds';
+    
+    protected $table = 'goals';
 
-    protected $fillable = ['name', 'display_name', 'description'];
+    protected $fillable = ['player_id','equiment_id','match_id'];
+
+    
 }
